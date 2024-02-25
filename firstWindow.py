@@ -11,6 +11,7 @@ mainMenu.title('Tonys Pizzeria')
 mainMenu.geometry('575x400')
 mainMenu.resizable(False, False)
 
+# opens new window that will be for placing orders
 def toOrder():
     testWin = tk.Tk()
     testWin.mainloop
