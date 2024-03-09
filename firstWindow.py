@@ -7,7 +7,9 @@ mainMenu = tk.Tk()
 # Titles 
 mainMenu.title('Tonys Pizzeria')
 
+# window for carryout orders
 def toCarryout():
+    # gets size selection from user and prints the price and size
     def showSize():
         selected = selectedSize.get()
         if selected == "S":
@@ -21,6 +23,7 @@ def toCarryout():
 
         sizeResult.config(text=f"Selected Topping: ${roundSize} {selected}")
 
+    # gets topping selection from user and prints price and topping
     def showTopping():
         selected = selectedTopping.get()
         if selected == "Pepperoni":
@@ -42,6 +45,7 @@ def toCarryout():
 
         toppingResult.config(text=f"Selected Topping: ${roundTop} {selected}")
 
+    # gets sauce selection from user and prints price and sauce
     def showSauce():
         selected = selectedSauce.get()
         if selected == "Tomato":
@@ -55,6 +59,7 @@ def toCarryout():
 
         sauceResult.config(text=f"Selected Topping: ${roundSauce} {selected}")
 
+    # gets crust selection from user and prints price and crust
     def showCrust():
         selected = selectedCrust.get()
         if selected == "Thin":
@@ -70,7 +75,7 @@ def toCarryout():
 
         crustResult.config(text=f"Selected Topping: ${roundCrust} {selected}")
 
-
+    # confirms order and disables customization options
     def confirmOrder():
 
         thankYou = tk.Label(carryOut, text = "Thank You For Your Order. Your Pizza Is Being Made.", font = 'Arial 14 bold')
@@ -79,16 +84,18 @@ def toCarryout():
         sauceButton.config(state = 'disabled')
         crustButton.config(state = 'disabled')
         confirmButton.config(state = 'disabled')
-        exitSecond = tk.Button(carryOut, text = "Exit", command = quit)
+        exitSecond = tk.Button(carryOut, text = "Exit", command = quit) # gives user the option to exit 
 
         thankYou.grid(row = 21, column = 0)
         exitSecond.grid(row = 22, column = 0)
 
 
+    # creates carryout window
     carryOut = tk.Tk()
     carryOut.title('Carry Out')
     addOn = format(1.00, ".2f")
 
+    # creates labels for carryout window
     initialGreeting = tk.Label(carryOut, text = " Create Your Pizza ", font = 'Arial 24 bold')
     customSize = tk.Label(carryOut, text = " Select Size: ", font = 'Arial 14 bold')
     customTop = tk.Label(carryOut, text = " Select Topping: ", font = 'Arial 14 bold')
@@ -97,27 +104,32 @@ def toCarryout():
     priceMessage = tk.Label(carryOut, text = f" Carryout has a base price of ${addOn} plus all prices listed next to selection.", font = 'Arial 14 bold')
     confirmMessage = tk.Label(carryOut, text = " Press Confirm To Order Pizza.", font = 'Arial 14 bold')
 
+    # stores different options for pizza customization
     sizeOptions = ["S", "M", "L"]
     toppingOptions = ["Pepperoni", "Cheese", "Sausage", "Mushroom", "Pepperoni and Sausage", "Sausage and Mushroom", "Pepperoni and Mushroom"]
     sauceOptions = ["Tomato", "Ranch", "BBQ"]
     crustOptions = ["Thin", "Stuffed", "Deep Dish", "Hand Tossed"]
 
+    # initializes selections from user
     selectedSize = tk.StringVar()
     selectedTopping = tk.StringVar()
     selectedSauce = tk.StringVar()
     selectedCrust = tk.StringVar()
 
+    # creates drop down menus for different customization options
     sizeDrop = tk.OptionMenu(carryOut, selectedSize, *sizeOptions)
     topDrop = tk.OptionMenu(carryOut, selectedTopping, *toppingOptions)
     sauceDrop = tk.OptionMenu(carryOut, selectedSauce, *sauceOptions)
     crustDrop = tk.OptionMenu(carryOut, selectedCrust, *crustOptions)
 
+    # creates buttons for confirming customization choices
     sizeButton = tk.Button(carryOut, text = "Confirm Size", command = showSize)
     toppingButton = tk.Button(carryOut, text = "Confirm Topping", command = showTopping)
     sauceButton = tk.Button(carryOut, text = "Confirm Sauce", command = showSauce)
     crustButton = tk.Button(carryOut, text = "Confirm Crust", command = showCrust)
     confirmButton = tk.Button(carryOut, text = "Confirm Order", command = confirmOrder)
    
+   # formatting for grid
     initialGreeting.grid(row = 1, column = 0)
     customSize.grid(row = 2, column = 0)
     sizeDrop.grid(row = 3, column = 0)
@@ -153,8 +165,10 @@ def toCarryout():
 
     carryOut.mainloop
 
+# window for delivery orders
 def toDelivery():
     def showSize():
+        # gets size selection from user and prints the price and size
         selected = selectedSize.get()
         if selected == "S":
             sizePrice = 7.00
@@ -167,6 +181,7 @@ def toDelivery():
 
         sizeResult.config(text=f"Selected Topping: ${roundSize} {selected}")
 
+    # gets topping selection from user and prints price and topping
     def showTopping():
         selected = selectedTopping.get()
         if selected == "Pepperoni":
@@ -188,6 +203,7 @@ def toDelivery():
 
         toppingResult.config(text=f"Selected Topping: ${roundTop} {selected}")
 
+    # gets sauce selection from user and prints price and sauce
     def showSauce():
         selected = selectedSauce.get()
         if selected == "Tomato":
@@ -201,6 +217,7 @@ def toDelivery():
 
         sauceResult.config(text=f"Selected Topping: ${roundSauce} {selected}")
 
+    # gets crust selection from user and prints price and crust
     def showCrust():
         selected = selectedCrust.get()
         if selected == "Thin":
@@ -216,7 +233,7 @@ def toDelivery():
 
         crustResult.config(text=f"Selected Topping: ${roundCrust} {selected}")
 
-
+    # confirms order and disables customization options
     def confirmOrder():
 
         thankYou = tk.Label(delivery, text = "Thank You For Your Order. Your Pizza Is Being Made.", font = 'Arial 14 bold')
@@ -225,15 +242,17 @@ def toDelivery():
         sauceButton.config(state = 'disabled')
         crustButton.config(state = 'disabled')
         confirmButton.config(state = 'disabled')
-        exitSecond = tk.Button(delivery, text = "Exit", command = quit)
+        exitSecond = tk.Button(delivery, text = "Exit", command = quit) # gives user the option to exit
 
         thankYou.grid(row = 21, column = 0)
         exitSecond.grid(row = 22, column = 0)
 
+    # creates delivery window
     delivery = tk.Tk()
     delivery.title('Carry Out')
     addOn = format(7.00, ".2f")
 
+    # creates labels for carryout window
     initialGreeting = tk.Label(delivery, text = " Create Your Pizza ", font = 'Arial 24 bold')
     customSize = tk.Label(delivery, text = " Select Size: ", font = 'Arial 14 bold')
     customTop = tk.Label(delivery, text = " Select Topping: ", font = 'Arial 14 bold')
@@ -242,27 +261,32 @@ def toDelivery():
     priceMessage = tk.Label(delivery, text = f" Delivery has a base price of ${addOn} plus all prices listed next to selection.", font = 'Arial 14 bold')
     confirmMessage = tk.Label(delivery, text = " Press Confirm To Order Pizza.", font = 'Arial 14 bold')
 
+    # stores different options for pizza customization
     sizeOptions = ["S", "M", "L"]
     toppingOptions = ["Pepperoni", "Cheese", "Sausage", "Mushroom", "Pepperoni and Sausage", "Sausage and Mushroom", "Pepperoni and Mushroom"]
     sauceOptions = ["Tomato", "Ranch", "BBQ"]
     crustOptions = ["Thin", "Stuffed", "Deep Dish", "Hand Tossed"]
 
+    # initializes selections from user
     selectedSize = tk.StringVar()
     selectedTopping = tk.StringVar()
     selectedSauce = tk.StringVar()
     selectedCrust = tk.StringVar()
 
+    # creates drop down menus for different customization options
     sizeDrop = tk.OptionMenu(delivery, selectedSize, *sizeOptions)
     topDrop = tk.OptionMenu(delivery, selectedTopping, *toppingOptions)
     sauceDrop = tk.OptionMenu(delivery, selectedSauce, *sauceOptions)
     crustDrop = tk.OptionMenu(delivery, selectedCrust, *crustOptions)
 
+    # creates buttons for confirming customization choices
     sizeButton = tk.Button(delivery, text = "Confirm Size", command = showSize)
     toppingButton = tk.Button(delivery, text = "Confirm Topping", command = showTopping)
     sauceButton = tk.Button(delivery, text = "Confirm Sauce", command = showSauce)
     crustButton = tk.Button(delivery, text = "Confirm Crust", command = showCrust)
     confirmButton = tk.Button(delivery, text = "Confirm Order", command = confirmOrder)
    
+   # formatting for grid 
     initialGreeting.grid(row = 1, column = 0)
     customSize.grid(row = 2, column = 0)
     sizeDrop.grid(row = 3, column = 0)
