@@ -101,7 +101,7 @@ def toCarryout():
     customTop = tk.Label(carryOut, text = " Select Topping: ", font = 'Arial 14 bold')
     customSauce = tk.Label(carryOut, text = " Select Sauce: ", font = 'Arial 14 bold')
     customCrust = tk.Label(carryOut, text = " Select Crust: ", font = 'Arial 14 bold')
-    priceMessage = tk.Label(carryOut, text = f" Carryout has a base price of ${addOn} plus all prices listed next to selection.", font = 'Arial 14 bold')
+    priceMessage = tk.Label(carryOut, text = f" Carry Out has a base price of ${addOn} plus all prices listed next to selection.", font = 'Arial 14 bold')
     confirmMessage = tk.Label(carryOut, text = " Press Confirm To Order Pizza.", font = 'Arial 14 bold')
 
     # stores different options for pizza customization
@@ -249,7 +249,7 @@ def toDelivery():
 
     # creates delivery window
     delivery = tk.Tk()
-    delivery.title('Carry Out')
+    delivery.title('Delivery')
     addOn = format(7.00, ".2f")
 
     # creates labels for carryout window
